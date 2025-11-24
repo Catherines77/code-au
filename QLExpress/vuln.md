@@ -28,7 +28,7 @@ payload
 os = new java.io.FileOutputStream("D:/flag.txt");content = "flag123";os.write(content.getBytes());os.close();
 ```
 
-<img width="1821" height="951" alt="image" src="https://github.com/user-attachments/assets/ae767930-cd57-4bd3-8c15-2c34ec9e7e63" />
+<img width="1812" height="917" alt="image" src="https://github.com/user-attachments/assets/dbb91907-cd96-4fd4-95f9-cfbade37afac" />
 
 
 ## Impact
