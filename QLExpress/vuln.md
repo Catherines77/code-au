@@ -2,6 +2,7 @@
 
 **Product**: QLExpress
 **Affected Versions**: ≤ v3.3.4
+**address**: https://github.com/alibaba/QLExpress
 
 ## Vulnerability Description
 
