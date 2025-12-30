@@ -1,4 +1,4 @@
-# QLExpress arbitrary file write/read (≤ v3.3.4)
+# QLExpress remote code execution (≤ v3.3.4)
 
 **Product**: QLExpress
 
