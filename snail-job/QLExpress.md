@@ -8,7 +8,7 @@
 
 ## Vulnerability Description
 
-In snail-job versions 1.9.0 and below, the `/snail-job/workflow/check-node-expression` interface does not validate user input and executes it directly as an aviator expression, resulting in remote code execution.
+In snail-job versions 1.9.0 and below, the `/snail-job/workflow/check-node-expression` interface does not validate user input and executes it directly as an QLExpress expression, resulting in remote code execution.
 
 ## POC
 
