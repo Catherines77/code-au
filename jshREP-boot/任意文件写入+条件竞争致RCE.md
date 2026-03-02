@@ -241,11 +241,11 @@ Connection: keep-alive
 
 python和burp同时运行，直到响应包出现set-cookie头部，就说明竞争成功了。
 
-![image-20260211165311983](C:\Users\13903\AppData\Roaming\Typora\typora-user-images\image-20260211165311983.png)
+<img width="1888" height="997" alt="image" src="https://github.com/user-attachments/assets/ea953f8f-2f3d-48a7-83b2-5ed3b39b4ad0" />
 
 哥斯拉连接，注意需要加上X-Access-Token头部
 
-![image-20260211170355599](C:\Users\13903\AppData\Roaming\Typora\typora-user-images\image-20260211170355599.png)
+<img width="604" height="642" alt="image" src="https://github.com/user-attachments/assets/56d91841-040c-42b3-be8c-fb509c7c4b2d" />
 
 ## Code
 
@@ -305,8 +305,8 @@ fastjson触发代码在`com.jsh.erp.utils.StringUtil`
 
 不难看出如果能够控制search字符串，就能够让fastjson触发恶意代码。而这个getInfo方法在所有的/list controller中都有调用
 
-![image-20260211171553353](C:\Users\13903\AppData\Roaming\Typora\typora-user-images\image-20260211171553353.png)
+<img width="924" height="642" alt="image" src="https://github.com/user-attachments/assets/7b891c8d-c84d-4371-8170-c81c3e72e28e" />
 
 例如我上面复现的接口代码，这里的key不用管，我们只需要传入search即可
 
-![image-20260211171611989](C:\Users\13903\AppData\Roaming\Typora\typora-user-images\image-20260211171611989.png)
+<img width="1147" height="735" alt="image" src="https://github.com/user-attachments/assets/f6e26f50-cf73-438d-9f5d-cab7b66bbddc" />
