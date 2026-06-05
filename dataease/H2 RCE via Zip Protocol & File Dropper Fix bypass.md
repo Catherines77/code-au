@@ -40,7 +40,7 @@ xxxx
 ------WebKitFormBoundaryTBXt7gnsZ4zAVkxW--
 ```
 
-拿到文件绝对路径`/opt/dataease2.0/data/font/b397c2fc-4c4c-45ef-82f8-0343561cb949.ttf`后，之后的步骤和https://github.com/dataease/dataease/security/advisories/GHSA-cjmg-jqmc-xj5v相同
+拿到文件绝对路径`/opt/dataease2.0/data/font/b397c2fc-4c4c-45ef-82f8-0343561cb949.ttf`后，之后的步骤和https://github.com/dataease/dataease/security/advisories/GHSA-cjmg-jqmc-xj5v 相同
 
 `io/dataease/font/manage/FontManage#saveFile`代码
 
