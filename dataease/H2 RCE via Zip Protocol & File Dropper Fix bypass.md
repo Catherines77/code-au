@@ -8,11 +8,13 @@
 
 同时，如果上传xlsx后缀的zip文件，ExcelUtils.getTables方法会抛出格式不正确的异常
 
-![image-20260602165604956](C:\Users\13903\AppData\Roaming\Typora\typora-user-images\image-20260602165604956.png)
+<img width="1883" height="862" alt="image" src="https://github.com/user-attachments/assets/c26920a6-7560-45a7-b1e6-c5eb05c6aef7" />
+
 
 因此找到了另一个上传方法`io/dataease/font/manage/FontManage#saveFile`，此方法虽然限制了文件后缀为ttf，但并没有校验文件内容，也不会删除，所以可以上传一个后缀为ttf的zip格式文件。
 
-![image-20260603140601065](C:\Users\13903\AppData\Roaming\Typora\typora-user-images\image-20260603140601065.png)
+<img width="1919" height="860" alt="image" src="https://github.com/user-attachments/assets/774e8e54-9787-4b36-a7c5-ef6bae5266b5" />
+
 
 zip文件改个后缀上传即可
 
@@ -38,7 +40,7 @@ xxxx
 ------WebKitFormBoundaryTBXt7gnsZ4zAVkxW--
 ```
 
-拿到文件绝对路径`/opt/dataease2.0/data/font/b397c2fc-4c4c-45ef-82f8-0343561cb949.ttf`后，之后的步骤和https://github.com/dataease/dataease/security/advisories/GHSA-cjmg-jqmc-xj5v相同
+拿到文件绝对路径`/opt/dataease2.0/data/font/b397c2fc-4c4c-45ef-82f8-0343561cb949.ttf`后，之后的步骤和https://github.com/dataease/dataease/security/advisories/GHSA-cjmg-jqmc-xj5v 相同
 
 `io/dataease/font/manage/FontManage#saveFile`代码
 
