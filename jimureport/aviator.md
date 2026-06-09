@@ -14,11 +14,13 @@ JimuReport versions 2.3.0 and below at `/jmreport/executeSelectApi` API do not e
 
 Vulnerable interface front-end location:
 
-![image-20260609101547363](C:\Users\13903\AppData\Roaming\Typora\typora-user-images\image-20260609101547363.png)
+<img width="1050" height="752" alt="image" src="https://github.com/user-attachments/assets/c50c9216-10d2-4ceb-bb58-6763d059c120" />
+
 
 The vulnerability is triggered by entering arbitrary report parameters and then clicking the API parsing button.
 
-![image-20260609101825479](C:\Users\13903\AppData\Roaming\Typora\typora-user-images\image-20260609101825479.png)
+<img width="1905" height="866" alt="image" src="https://github.com/user-attachments/assets/97bada2c-d7e9-4c99-accd-ea4b9bf38018" />
+
 
 The vulnerability lies in the paramValue parameter, which, under certain conditions, can parse aviator expressions.
 
@@ -54,13 +56,16 @@ Use java-chains to generate DruidJdbcAttack-H2 command execution chains.
 https://github.com/vulhub/java-chains
 <img width="1549" height="626" alt="image" src="https://github.com/user-attachments/assets/d86516b8-2259-4785-8fc5-eb2fb93edf3f" />
 
-![image-20260609111039094](C:\Users\13903\AppData\Roaming\Typora\typora-user-images\image-20260609111039094.png)
+<img width="1872" height="855" alt="image" src="https://github.com/user-attachments/assets/8ceb93b4-09d0-4ea8-aaee-e1a4a69f64e9" />
+
 
 ```java
 =use cn.hutool.core.util.*;RuntimeUtil.execForStr(seq.array(java.lang.String, "calc"))
 ```
 Because of the hutool-core dependency, the built-in `RuntimeUtil.execForStr` method can be used to execute commands.
-![image-20260609100634323](C:\Users\13903\AppData\Roaming\Typora\typora-user-images\image-20260609100634323.png)
+
+<img width="1875" height="852" alt="image" src="https://github.com/user-attachments/assets/5e01511e-ba95-4ac3-a188-cb9b85e6cef6" />
+
 
 
 ## code
