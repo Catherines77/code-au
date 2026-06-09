@@ -8,7 +8,7 @@
 
 ## Vulnerability Description
 
-JimuReport versions 2.3.0 and below at `/jmreport/executeSelectApi` API do not effectively restrict user input, directly delegating it to the `execute` method of the aviator expression, which leads to aviator expression injection.
+JimuReport versions 2.3.4 and below at `/jmreport/executeSelectApi` API do not effectively restrict user input, directly delegating it to the `execute` method of the aviator expression, which leads to aviator expression injection.
 
 ## POC
 
