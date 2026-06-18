@@ -30,4 +30,4 @@ Connection: keep-alive
 
 在java-chains种选择ssrf，poc相同，成功读取
 
-![image-20260612104713097](../../笔记/images/image-20260612104713097.png)
+<img width="1621" height="503" alt="image" src="https://github.com/user-attachments/assets/d4d004f0-ecce-4d25-b8f9-22602be9bab0" />
